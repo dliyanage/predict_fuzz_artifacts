@@ -2,7 +2,7 @@
 
 For Artifact Evaluation at ICSE 2024.
 
-<a href="https://github.com/dliyanage/predict_fuzz/blob/artifacts/paper/ICSE24_Extrapolation.pdf"><img src="https://github.com/dliyanage/predict_fuzz/blob/artifacts/ICSE24_Extrapolation.png" align="right" width="280"></a>
+<a href="https://github.com/dliyanage/predict_fuzz_artifacts/tree/main/paper/ICSE24_Extrapolation.pdf"><img src="https://github.com/dliyanage/predict_fuzz_artifacts/blob/main/ICSE24_Extrapolation.png" align="right" width="280"></a>
 
 ## Submission
 * [Danushka Liyanage](https://dliyanage.github.io/) (Monash University, Australia) - Co-first author,
