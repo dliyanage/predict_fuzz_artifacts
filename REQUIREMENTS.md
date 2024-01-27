@@ -43,4 +43,5 @@ The results appearing in the paper have been generated using the following R lib
 * colorspace    - 2.0-1
 * viridis       - 0.6.1
 * reshape2      - 1.4.3
+* coin          - 1.4-2
 ```

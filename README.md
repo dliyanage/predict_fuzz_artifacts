@@ -100,6 +100,7 @@ Below are the recommended R package versions:
 * colorspace    - 2.0-1
 * viridis       - 0.6.1
 * reshape2      - 1.4.3
+* coin          - 1.4-2
 ```
 
 Additionally, refer to `REQUIREMENTS.md` for more specific details on package requirements in the replication package.
@@ -110,6 +111,8 @@ Fuzztastic is a fuzzer-agnostic coverage analyzer designed for uniform fuzzer ev
 
 * [Conference article](https://dl.acm.org/doi/10.1145/3510454.3516847)
 * [Youtube video](https://www.youtube.com/watch?v=Lm-eBx0aePA&ab_channel=TUMSoftwareSystemsEngineering)
+
+**Note:** This Fuzztastic is a third party software tool and you may require explicit permission to grant access to use it from the owners.
 
 Here is an example of how to run Fuzztastic on a candidate program:
 

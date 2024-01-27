@@ -1,11 +1,11 @@
 # Installation
 
-We offer a straightforward and convenient method to execute the `analysis.ipynb` notebook located in the `./scripts` directory.
+We offer a straightforward and convenient method to execute the `experimental.ipynb` notebook located in the `./scripts` directory.
 
 ## Prerequisites
 
 Ensure that the following software is installed on your local machine (works for any operating system, including Windows, Mac, or Linux):
-- The latest version of the statistical package *R*. If R is not available on your local machine, download R from [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/) and follow the instructions provided in [this link](https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu) based on your operating system to install R.
+- The latest version of the statistical package *R*. If R is not available on your local machine, download R from [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/) for Windows or [https://cran.r-project.org/bin/macosx/](https://cran.r-project.org/bin/macosx/) for Mac and follow the instructions provided in [this link](https://www.datacamp.com/community/tutorials/installing-R-windows-mac-ubuntu) based on your operating system to install R.
 - The individual edition of `Anaconda Navigator`. Find the installation package and instructions at [https://docs.anaconda.com/anaconda/navigator/](https://docs.anaconda.com/anaconda/navigator/)
 
 ## Clone and Launch JupyterLab
@@ -25,11 +25,35 @@ Now you are all set for launching `JupyterLab`.
 
 JupyterLab will open in the browser.
 
+Alternatively, you may use the following Docker compose file to conveniently setup the R environment to run the Jupyter notebook.
+
+`FROM continuumio/anaconda3
+
+RUN apt update && apt upgrade -y
+
+RUN conda install -y r-recommended r-irkernel \
+      r-ggplot2 r-tidyr r-tidyverse r-dplyr \
+      r-stringr r-scales r-RColorBrewer r-rjson \
+      r-jsonlite r-ggpubr r-cowplot r-gridExtra \
+      r-forcats r-gridExtra r-plotly r-foreach \
+      r-doParallel r-lsr r-rstatix r-colorspace \
+      r-viridis r-reshape2 r-coin
+
+RUN R -e 'IRkernel::installspec()'
+
+COPY . /artifact
+WORKDIR /artifact
+
+EXPOSE 8888
+
+CMD [ "jupyter", "lab", "--ip", "0.0.0.0", "--allow-root" ]
+`
+
 ## Open and Run Our Workbooks
 
 The local file system appears in the left sidebar in the opened JupyterLab window. (If not, go to `View -> Show Left Sidebar` from the menu bar)
 
-- Navigate to the artifacts repository in the local file system and open the `analysis.ipynb` notebook on JupyterLab.
+- Navigate to the artifacts repository in the local file system and open the `experimental.ipynb` notebook on JupyterLab.
 - Before running the notebooks, make sure you have installed all the required R libraries mentioned in `REQUIREMENTS.md` and `README.md`. You can use the following line of code to install a required package:
   
 ```
@@ -48,6 +72,8 @@ install_version("ggplot2", version = "3.3.5", repos = "http://cran.us.r-project.
 ```
 
 Now, you can edit and run the notebooks in this repository. Instructions on using JupyterLab can be found [here](https://jupyter.org/).
+
+**Note on memory requirement:** We ran the `experimental.ipynb` notebook with 32GB memory (Ubuntu 22.04 in Parallels on x86_64 Mac) at the experimental phase (i.e. with REGENERATE_DATA = TRUE). Even with 27GB the Jupyter kernel restarted when running the third cell.
 
 ## Other Methods
 
